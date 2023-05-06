@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RemoteTargetsManager">
+    <targets>
+      <target name="WSL" type="wsl" uuid="7182dd62-060f-4d67-9150-16ed0d05a791">
+        <config>
+          <option name="distributionMsId" value="OracleLinux_8_5" />
+        </config>
+        <ContributedStateBase type="JavaLanguageRuntime">
+          <config>
+            <option name="homePath" value="/home/qzhang16/amazon-corretto-17.0.6.10.1-linux-x64" />
+          </config>
+        </ContributedStateBase>
+        <ContributedStateBase type="MavenRuntime">
+          <config>
+            <option name="homePath" value="/home/qzhang16/apache-maven-3.9.1" />
+            <option name="versionString" value="3.9.1" />
+          </config>
+        </ContributedStateBase>
+      </target>
+    </targets>
+  </component>
+</project>
