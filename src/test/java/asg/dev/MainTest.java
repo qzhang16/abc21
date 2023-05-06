@@ -1,6 +1,9 @@
 package asg.dev;
 
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class MainTest {
@@ -12,7 +15,7 @@ public class MainTest {
 
     @Test
     public void isStringUtils() {
-        assertTrue(org.apache.commons.lang3.StringUtils.capitalize("hello, world").equals("Hello, world"));
+        assertEquals("Hello, world", StringUtils.capitalize("hello, world"));
     }
 }
 
