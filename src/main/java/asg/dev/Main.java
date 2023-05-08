@@ -64,7 +64,7 @@ public class Main {
         @Override
         public void endDocument() throws SAXException{
             if (tags.size() > 0 ) {
-                tags.forEach((k,v) -> System.out.println("localName \"" + k + "\" occurs " + v + "time(s)"));
+                tags.forEach((k,v) -> System.out.println("localName \"" + k + "\" occurs " + v + " time(s)"));
             }
         }
 
