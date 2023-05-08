@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- <!DOCTYPE personnel SYSTEM "personal.dtd"> -->
+<!DOCTYPE personnel SYSTEM "src/main/resources/personal.dtd">
 <personnel>
 
   <person id="Big.Boss">
-    <name><family>Boss</family> <given>Big</given></name>
+    <name><given>Big</given></name>
     <email>chief@foo.com</email>
     <link subordinates="one.worker two.worker three.worker four.worker five.worker"/>
   </person>

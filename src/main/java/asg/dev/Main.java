@@ -1,10 +1,7 @@
 package asg.dev;
 
 import org.apache.commons.lang3.StringUtils;
-import org.xml.sax.Attributes;
-import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
-import org.xml.sax.XMLReader;
+import org.xml.sax.*;
 import org.xml.sax.helpers.DefaultHandler;
 
 import javax.xml.parsers.SAXParser;
@@ -39,14 +36,28 @@ public class Main {
         public static void processXMLFile(String xmlFileName) throws Exception{
             SAXParserFactory spf = SAXParserFactory.newInstance();
             spf.setNamespaceAware(true);
+            spf.setValidating(true);
             SAXParser sp = spf.newSAXParser();
             XMLReader xr = sp.getXMLReader();
             SAXLocalNameCount sln = new SAXLocalNameCount();
             xr.setContentHandler(sln);
+            xr.setErrorHandler(sln);
 //            xr.setErrorHandler()
             BufferedReader br = new BufferedReader(new InputStreamReader(sln.getClass().getClassLoader().getResourceAsStream(xmlFileName)));
             xr.parse(new InputSource(br));
 
+        }
+
+        @Override
+        public void warning(SAXParseException e) throws SAXException {
+            System.out.println("warning: " + e);
+            throw new SAXException(e);
+        }
+
+        @Override
+        public void error(SAXParseException e) throws SAXException {
+            System.out.println("error: " +e);
+            throw new SAXException(e);
         }
 
         @Override
