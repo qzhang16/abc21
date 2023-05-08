@@ -28,7 +28,7 @@
   <xs:complexType>
    <xs:sequence>
      <xs:element ref="name"/>
-     <xs:element ref="email" minOccurs='0' maxOccurs='unbounded'/>
+     <xs:element ref="email" minOccurs='1' maxOccurs='unbounded'/>
      <xs:element ref="url"   minOccurs='0' maxOccurs='unbounded'/>
      <xs:element ref="link"  minOccurs='0' maxOccurs='1'/>
    </xs:sequence>

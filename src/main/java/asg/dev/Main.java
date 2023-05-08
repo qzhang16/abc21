@@ -27,10 +27,18 @@ public class Main {
 //            // for you, but you can always add more by pressing Ctrl+F8.
 //            System.out.println("i = " + i);
 //        }
-        SAXLocalNameCount.processXMLFile("personal.xml");
+        SAXLocalNameCount.processXMLFile("personal-schema.xml");
     }
 
     static class SAXLocalNameCount extends DefaultHandler {
+        static final String JAXP_SCHEMA_LANGUAGE =
+                "http://java.sun.com/xml/jaxp/properties/schemaLanguage";
+
+        static final String W3C_XML_SCHEMA =
+                "http://www.w3.org/2001/XMLSchema";
+
+        static final String JAXP_SCHEMA_SOURCE =
+                "http://java.sun.com/xml/jaxp/properties/schemaSource";
         HashMap<String, Integer> tags;
         ArrayList<String> textData;
         public static void processXMLFile(String xmlFileName) throws Exception{
@@ -38,6 +46,7 @@ public class Main {
             spf.setNamespaceAware(true);
             spf.setValidating(true);
             SAXParser sp = spf.newSAXParser();
+            sp.setProperty(JAXP_SCHEMA_LANGUAGE, W3C_XML_SCHEMA);
             XMLReader xr = sp.getXMLReader();
             SAXLocalNameCount sln = new SAXLocalNameCount();
             xr.setContentHandler(sln);
