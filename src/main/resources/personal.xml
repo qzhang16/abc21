@@ -3,7 +3,7 @@
 <personnel>
 
   <person id="Big.Boss">
-    <name><given>Big</given></name>
+    <name><family>Boss</family><given>Big</given></name>
     <email>chief@foo.com</email>
     <link subordinates="one.worker two.worker three.worker four.worker five.worker"/>
   </person>
