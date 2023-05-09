@@ -10,6 +10,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -115,8 +116,8 @@ public class Main {
         static final String W3C_XML_SCHEMA =
                 "http://www.w3.org/2001/XMLSchema";
 
-//        static final String JAXP_SCHEMA_SOURCE =
-//                "http://java.sun.com/xml/jaxp/properties/schemaSource";
+        static final String JAXP_SCHEMA_SOURCE =
+                "http://java.sun.com/xml/jaxp/properties/schemaSource";
         private PrintStream out;
 
         private int indent;
@@ -136,6 +137,7 @@ public class Main {
             dbf.setIgnoringElementContentWhitespace(true);
             dbf.setExpandEntityReferences(true);
             dbf.setAttribute(JAXP_SCHEMA_LANGUAGE, W3C_XML_SCHEMA);
+            dbf.setAttribute(JAXP_SCHEMA_SOURCE, new File("personal.xsd"));
 
             DocumentBuilder db = dbf.newDocumentBuilder();
             DOMLocalNameCount dln = new DOMLocalNameCount(System.out);
