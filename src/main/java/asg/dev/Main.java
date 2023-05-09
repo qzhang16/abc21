@@ -9,6 +9,11 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStreamReader;
@@ -145,6 +150,16 @@ public class Main {
             BufferedReader br = new BufferedReader(new InputStreamReader(dln.getClass().getClassLoader().getResourceAsStream(xmlFileName)));
             org.w3c.dom.Document doc = db.parse(new InputSource(br));
             dln.echo(doc);
+            System.out.println("#".repeat(50));
+
+            TransformerFactory tf = TransformerFactory.newInstance();
+            Transformer t = tf.newTransformer();
+            t.setOutputProperty(OutputKeys.INDENT, "yes");
+            Node node = doc.getElementById("one.worker");
+//            DOMSource ds = new DOMSource(doc);
+            DOMSource ds = new DOMSource(node);
+            StreamResult sr = new StreamResult(System.out);
+            t.transform(ds,sr);
 
         }
 
